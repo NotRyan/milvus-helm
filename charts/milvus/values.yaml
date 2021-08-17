@@ -362,6 +362,12 @@ minio:
     accessMode: ReadWriteOnce
     size: 500Gi
 
+  env:
+
+  command:
+    ["minio"]
+  args:
+    ["gateway", "gcs", "milvus-testing-nonprod"]
   gcsgateway:
     enabled: false
     gcsKeyJson: ""
