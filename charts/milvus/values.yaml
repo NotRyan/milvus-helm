@@ -368,16 +368,14 @@ minio:
     projectId: ""
 
   volumeMounts:
-  - name: gcs_key
-    mountPath: /etc/credentials/gcs_key.json
-    subPath: gcs_key.json
+  - name: gcs-key-volume
+    mountPath: /etc/credentials
     readOnly: true
 
   volumes:
-  - name: gcs_key
-    hostPath:
-      path: /var/gcs_key.json
-      type: File
+  - name: gcs-key-volume
+    secret:
+      secretName: gcs-credentials-secret
 ## Configuration values for the etcd dependency
 ## ref: https://artifacthub.io/packages/helm/bitnami/etcd
 ##
